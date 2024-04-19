@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    {% for message in message %}
+        <h3>{{message}}</h3>
+    {% endfor %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+            <p>Enter Your Name</p>
+            <input type="text" name="username" placeholder="Please Enter Username"/>
+            <p>Enter Your Password</p>
+            <input type="password" name="password1" placeholder="Please Enter Password"/>
+            <br/>
+            <button type="submit"> Login </button>
+            <button> <a href="{% url 'register' %}"> Register</a> </button>
+    </form>
+</body>
+</html>
